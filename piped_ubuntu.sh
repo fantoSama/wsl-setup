@@ -1,0 +1,1 @@
+/mnt/c/Users/siani/fantodev/Backup/zsh/piped_ubuntu.sh
