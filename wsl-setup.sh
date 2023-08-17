@@ -26,6 +26,10 @@ sudo apt update && sudo apt upgrade -y
 echo -e "${RED}Ubuntu has been updated${NC}"
 sleep 5
 
+
+
+
+
 # *** Enhancing the cli with some charms ***
 # (1) installing lsd
 echo -e "${BLUE}Installing LS Super charged${NC}"
@@ -38,27 +42,30 @@ sleep 5
 # (2) setting up zsh
 echo -e "${BLUE}Setting up zsh and its plugings${NC}"
 
-echo -e "${RED}creating directory to store plugins${NC}"
-mkdir -p ~/.zsh/.plugins
+# echo -e "${RED}creating directory to store plugins${NC}"
+# mkdir -p ~/.zsh/.plugins
 
-echo -e "${RED}cd to the plugins directory${NC}"
-cd ~/.zsh/.plugins
+# echo -e "${RED}cd to the plugins directory${NC}"
+# cd ~/.zsh/.plugins
 
 echo -e "${RED}cloning p10k${NC}"
-git clone https://github.com/romkatv/powerlevel10k.git
+git clone https://github.com/romkatv/powerlevel10k.git .zsh/.plugins
 
 echo -e "${RED}cloning zsh-completion${NC}"
-git clone https://github.com/zsh-users/zsh-completions.git
+git clone https://github.com/zsh-users/zsh-completions.git .zsh/.plugins
 
 echo -e "${RED}cloning zsh-syntax-highlighting${NC}"
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git .zsh/.plugins
 
 echo -e "${RED}cloning zsh-autosuggestions${NC}"
-git clone https://github.com/zsh-users/zsh-autosuggestions.git
+git clone https://github.com/zsh-users/zsh-autosuggestions.git .zsh/.plugins
 
 echo -e "${RED}All Plugins have been cloned and added to zsh plugins directory${NC}"
 
+# *** Install zsh
+echo -e "${BLUE}Installing zsh${NC}"
 sudo apt install zsh -y
+
 sleep 5
 
 # *** setting up my git working dir ***
