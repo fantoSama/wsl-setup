@@ -52,7 +52,7 @@ alias wsl='wsl.exe'
 alias pip='pip.exe'
 alias docker='docker.exe'
 alias docker-compose='docker-compose.exe'
-alias dl='clean-dl -y'
+alias dl='clean-dl.sh -y'
 # bun completions
 [ -s "/root/.bun/_bun" ] && source "/root/.bun/_bun"
 
