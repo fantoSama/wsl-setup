@@ -47,10 +47,12 @@ alias nt='nginx -t'
 alias ns='nginx -s reload'
 alias c='code .'
 alias bios='shutdown.exe /r /fw /t 5'
-alias dotnet='dotnet.exe'
+alias dot='dotnet.exe'
 alias wsl='wsl.exe'
 alias pip='pip.exe'
-
+alias docker='docker.exe'
+alias docker-compose='docker-compose.exe'
+alias dl='clean-dl -y'
 # bun completions
 [ -s "/root/.bun/_bun" ] && source "/root/.bun/_bun"
 
