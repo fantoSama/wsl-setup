@@ -30,7 +30,6 @@ fpath=(~/.zsh/.plugins/zsh-completions/src $fpath)
 
 #environment variables
 export PATH=.:$PATH #running bash script without the ./
-export HOST_DIR=/mnt/c/Users/${HOST_USERNAME} # accessing the the host username directory
 
 # Install plugins to zsh
 source ~/.zsh/.plugins/powerlevel10k/powerlevel10k.zsh-theme
@@ -45,17 +44,3 @@ alias lt='lsd --tree'
 alias cl='clear'
 alias nt='nginx -t'
 alias ns='nginx -s reload'
-alias c='code .'
-alias bios='shutdown.exe /r /fw /t 5'
-alias dot='dotnet.exe'
-alias wsl='wsl.exe'
-alias pip='pip.exe'
-alias docker='docker.exe'
-alias docker-compose='docker-compose.exe'
-alias dl='clean-dl.sh -y'
-# bun completions
-[ -s "/root/.bun/_bun" ] && source "/root/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"

@@ -3,14 +3,12 @@
 # *********************************************************
 # *********************************************************
 # **                                                     **
-# **               SET UP UBUNTU WSL                     **
+# **               SET UP PROXMOX VM                     **
 # **                                                     **
 # *********************************************************
 # *********************************************************
 
-HOST_NAME=$(wslpath "$(wslvar USERPROFILE)" | cut -d '/' -f 5)
-GIT_DIR_PATH="/mnt/c/Users/${HOST_NAME}/git"
-DEPENDENCIES="nodejs"
+DEPENDENCIES="zsh git fonts-font-awesome"
 LSD_BINARY="lsd_0.23.1_amd64.deb"
 
 RED='\033[0;31m'  # Red Color
@@ -64,32 +62,9 @@ sudo apt install zsh -y
 
 sleep 5
 
-# *** setting up my git working dir ***
-echo -e "${BLUE}Creating the git working dir${NC}"
-
-# (1) Creating the git dir
-mkdir -p $GIT_DIR_PATH
-
-# (2) Making a symbolic link of the git directoy into the wsl
-ln -s $GIT_DIR_PATH
-echo -e "${RED}The git working dir has been set up successfully${NC}"
-sleep 5
-
-# *** installing dev dependencies
-echo -e "${BLUE}Installing dev dependencies${NC}"
-
-# (1) node and yarn
-echo -e "${RED} Installing node and yarn${NC}"
-curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash - &&
-    sudo apt-get install -y nodejs
-npm install --global yarn
-echo -e "${RED}Node and Yarn has been installed${NC}"
-sleep 10
-
 # *** setting up dev dependencies
 echo -e "${RED}All dev dependencies have been installed${NC}"
 sudo apt install $DEPENDENCIES -y
-npm install --global yarn
 
 # setting zsh as the default shell
 echo -e "${BLUE}Setting zsh as the default shell${NC}"
