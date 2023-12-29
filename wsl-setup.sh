@@ -10,7 +10,6 @@
 
 HOST_NAME=$(wslpath "$(wslvar USERPROFILE)" | cut -d '/' -f 5)
 GIT_DIR_PATH="/mnt/c/Users/${HOST_NAME}/git"
-DEPENDENCIES="nodejs"
 LSD_BINARY="lsd_0.23.1_amd64.deb"
 
 RED='\033[0;31m'  # Red Color
@@ -61,7 +60,6 @@ echo -e "${RED}All Plugins have been cloned and added to zsh plugins directory${
 # *** Install zsh
 echo -e "${BLUE}Installing zsh${NC}"
 sudo apt install zsh -y
-
 sleep 5
 
 # *** setting up my git working dir ***
@@ -80,16 +78,17 @@ echo -e "${BLUE}Installing dev dependencies${NC}"
 
 # (1) node and yarn
 echo -e "${RED} Installing node and yarn${NC}"
-curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash - &&
-    sudo apt-get install -y nodejs
+sudo apt-get update
+sudo apt-get install -y ca-certificates curl gnupg
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
+NODE_MAJOR=20
+echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
+sudo apt-get update
+sudo apt-get install nodejs -y
 npm install --global yarn
 echo -e "${RED}Node and Yarn has been installed${NC}"
-sleep 10
-
-# *** setting up dev dependencies
-echo -e "${RED}All dev dependencies have been installed${NC}"
-sudo apt install $DEPENDENCIES -y
-npm install --global yarn
+sleep 5
 
 # setting zsh as the default shell
 echo -e "${BLUE}Setting zsh as the default shell${NC}"
